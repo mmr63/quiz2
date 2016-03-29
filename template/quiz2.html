@@ -3,35 +3,46 @@
 	<head>
 		<meta charset="UTF-8"
 		<title>Quiz 2</title>
+		<link rel="stylesheet" href="quiz2.css">
 	</head>
 	<body>
 		
 		<div class="content">
 			<h1>Hi, Welcome to the second quiz!</h1>
 			<p>Make sure the containers below respond to the events or functions implemented with quiz2.js</p>
-			<div class="evens">			
-				<div class="click">
-					<span>click event</span>
+			<div class="event">			
+				<div class="click" id="click">
+					<span>Click Event</span>
 				</div>
-				<div class="mouse-over">
-					<span>mouse over event</span>
+				<br>
+				<div class="mouse-over" id="mouse-over">
+					<span>Mouse Over Event</span>
 					<p>Who's the richest person you know? (mouse over to find out)</p>
 				</div>
-				<div>
-					<span>submit event</span>
+				<div class="submit">
+					<span>Submit Event</span>
+					<br><br>
 					<!-- The form not having an action or method is not a bug in this case -->
 					<form>
-						<label for="form">AJAX, yo!</label>
+						<label for="form">Test This Input Field</label>
 						<input type="text" id="form" name="form" placeholder="Enter Some Text" />
-						<input value="SUBMIT">
+						<input value="SUBMIT" type="submit" id="submit">
 					</form>
 				</div>
-				div class="timeout">
-					<span>timeout function</span>
+				<br>
+				<div class="timeout">
+					<span>Timeout Function</span>
+				</div>
+				<br>
+				<div class="getAPI" id="getAPI">
+					<form>
+						<input onclick="getAPI()" value="Get Title" type="button" id="action-button">
+					</form>
 				</div>
 			</div>
 		
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="quiz2.js"></script>
 	</body>
 </html>

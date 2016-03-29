@@ -4,36 +4,60 @@
 	// Use ajax to reach the api endpoint
 	// Whether or not you use jQuery, you still have to fix the jQuery errors. Removing jQuery is not fixing the problem.
 
-	$mouseover = $('.mouseover');
-	$click     = $('.clikc');
-	$sub       = $('.submit');
+	
+
+
+	$mouseover = $('.mouse-over');
+	$click     = $('.click');
+	$submit      = $('.submit');
+	$timeout   = $('.timeout');
+	$getAPI 	= $('.getAPI');
 
 	$mouseover.on('mouseover', function() {
-		$this = $(this);
-		$(this).html('Scrooge McDuck!');
-		$(this).height($(this).height() + 50);
+		$('#mouse-over').html('Scrooge McDuck!').show();
+		$('#mouse-over').height($('#mouse-over').height() + 50); //assuming this is to repeatedly show it works on every mouse over
 	});
 
-	$click.click('click', function() {
-		$this.hmtl('Peace Out!')
-		$(this).fadeout(1500);
+	$('#click').click(function() {
+		$('#click').replaceWith('Peace Out!');
+		$('#click').fadeOut(1500);
 		return false;
 	});
 
 	$submit.on('submit', function(e) {
 		e.preventDefault();
-		if ($(this).find('input[type="text"]').val() !== '') {
-			$(this).find('input').foreach(function() {
-				$(this).fadeout('slow');
+		if ($('#form').find('input[type="text"]').val() !== '') {
+			$('#form').find('input').each(function() {
+				$('#form').fadeOut('slow');
+				
 			});
-			$(this).appendwith('<h2>Congratulations! You've entered some text!</h2>');
+			$('#submit').replaceWith('<h2>Congratulations! You\'ve entered some text!</h2>');
+			
 		}
 	});
 
-	$(document).on(ready, function() {
-		setTimeout({
-			$timeout.fadeIn('slow');
-		}, 1000);
+
+	$(document).ready(function() 
+	{
+		
 	});
 
 })(jQuery);
+function getAPI()
+	{
+		document.getElementById("action-button").value="Change It";
+		$.getJSON( "http://www.mattbowytz.com/simple_api.json?data=quizData", function( data ) 
+		{
+			var r = $('<input id="newButton" type="button" value="Keep It"/>');
+			$("#getAPI").append(r);
+		  	var entry = data.data[Math.floor(Math.random()*data.data.length)];
+		  	$("#getAPI").append("<br>" + "<h1>" + entry + "</h1>");
+		  	document.getElementById("getAPI").style.backgroundColor = "#c2d6d6";
+		  	document.getElementById("getAPI").style.textAlign = "center";
+		});
+		
+
+
+	}
+
+
